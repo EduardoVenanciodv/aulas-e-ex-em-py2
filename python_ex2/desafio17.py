@@ -1,9 +1,14 @@
-
-for c in range(0, 50+1):
-    print(f'\033[35m{c}\033[m')
-    if c > 1 and c%2 != 0 and c%3 != 0 and c%5 != 0 and c%7 != 0 and c%11 != 0 or c == 2 or c == 3 or c == 5 or c == 7 or c == 11 :
-        print('\033[32mnumero primo\033[m') 
+p = int(input('Digite um numero :'))
+cont = 0
+for c in range(1, p+1):
+    if p % c == 0:
+        print(f'\033[32m{c}\033[m', end=' ')
+        cont += 1
     else:
-        print('\033[31mNao e um numero primo\033[m')    
-    
+        print(f'\033[31m{c}\033[m', end=' ')
 
+print(f'\nO número {p} foi divisivel {cont} vez(es)')
+if cont == 2 or cont == 1:
+    print('\033[32mPor isso ele é primo!\033[m')
+elif cont >= 3:
+    print('\033[31mPor isso ele não é primo!\033[m')
