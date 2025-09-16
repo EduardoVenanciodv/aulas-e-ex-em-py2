@@ -1,23 +1,24 @@
 from random import randint
-from time import sleep
 
 pc = randint(0, 10)
 
 print('\033[35m^_-' * 12)
-print('Vou pensar em um número de 0 ao 10.')
+print('Sou seu computador.\nVou pensar em um número de 0 ao 10.')
 print('^_-' * 12)
 
-sleep(1)
-print('\033[mLoad.')
-sleep(0.7)
-print('Load..')
-sleep(0.5)
-print('Load...')
-
-eu = 11
+acertou = False
 tentativas = 0
-while eu != pc:
-    eu = int(input('\033[36mDigite seu numero:'))
-    tentativas += 1
 
-print(f'\033[36mVocê acertou é o número: \033[m{eu}\n\033[36mNúmero de tentavias:\033[m {tentativas}')
+while not acertou:
+    eu = int(input('\033[36mQual é o seu palpite?\033[m'))
+
+    tentativas += 1
+    if eu == pc:
+        acertou = True
+    if eu < pc:
+        print('Mais... \033[31mTentes outra vez.\033[m')
+    elif eu > pc:
+        print('Menos... \033[31mTentes outra vez.\033[m')
+
+print(f'\033[32mVocê acertou é o número: \033[m{eu}\n'
+      f'\033[32mNúmero de tentavias:\033[m {tentativas}\n\033[32mParabéns!!\033[m')
