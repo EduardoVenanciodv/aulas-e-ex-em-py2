@@ -1,15 +1,19 @@
-pa = 0
-t = 10
 pri = int(input('\033[36mDigite o primeiro termo: '))
 r = int(input('Digite a razão:\033[m '))
 
-while pa != t:
-    if t >= 10:
-        print(f'\033[35m{pri}\033[m', end='\033[36m -> \033[m')
-        pri += r
-        pa += 1
+cont = 1
+mais_termos = 10
+termo = pri
+total = 0
 
-    if pa >= t:
-        t = int(input('\n\033[34mDigite quantos mais termos voce quer ver dessa PA:\033[m '))+t
+while mais_termos != 0:
+    total += mais_termos
+    while cont <= total:
+        print(f'\033[35m{termo}\033[m', end='\033[36m -> \033[m')
+        termo += r
+        cont += 1
 
-print('\033[31mPrograma encerrado\033[m')
+    print('PAUSA')
+    mais_termos = int(input('\n\033[34mDigite quantos mais termos voce quer ver dessa PA:\033[m '))
+
+print(f'\033[31mPrograma encerrado. Com {total} termos mostrados.\033[m')
