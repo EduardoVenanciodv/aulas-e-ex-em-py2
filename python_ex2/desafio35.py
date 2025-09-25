@@ -9,14 +9,11 @@ while True:
     soma += valor
     if valor > 1000:
         maior1000 += 1
-    if menor_valor == 0:
+    if menor_valor == 0 or valor < menor_valor:
         menor_valor = valor
         produto_barato = produto
-    if valor < menor_valor:
-        menor_valor = valor
-        produto_barato = produto
-    continuar = ''
-    while continuar != 'S' and continuar != 'N':
+    continuar = ' '
+    while continuar not in 'SN':
         continuar = str(input('Quer continuar comprando (S/N):')).upper().strip()[0]
     if continuar == 'N':
         break
